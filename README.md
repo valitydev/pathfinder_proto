@@ -1,1 +1,2 @@
-# pathfinder_proto
+# pathfinder-proto
+thrift protocol for Pathfinder service

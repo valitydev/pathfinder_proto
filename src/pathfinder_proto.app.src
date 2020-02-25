@@ -1,0 +1,9 @@
+{application, pathfinder_proto, [
+    {description, "Thrift proto for Pathfinder"},
+    {vsn, "0.1.0"},
+    {applications, [
+        kernel,
+        stdlib
+    ]},
+    {maintainers, []}
+]}.
