@@ -410,15 +410,89 @@ struct Withdrawal {
     20: optional string                   withdrawal_status_failed_failure_json
 }
 
-enum LookupNamespace {
-    adjustments
-    destinations
-    invoices
-    payments
-    payouts
-    refunds
-    wallets
-    withdrawals
+struct Identity {
+     1: required ID        id
+     2: required ID        event_id
+     3: required Timestamp event_created_at
+     4: required Timestamp event_occured_at
+     5: required ID        sequence_id
+     6: required EntityID  party_id
+     7: required EntityID  party_contract_id
+     8: required EntityID  identity_id
+     9: required EntityID  identity_provider_id
+    10: required EntityID  identity_class_id
+    11: optional EntityID  identity_effective_chalenge_id
+    12: optional EntityID  identity_level_id
+    13: required Timestamp wtime
+    14: required bool      current
+    15: optional string    external_id
+    16: optional bool      blocked
+    17: optional string    context_json
+}
+
+
+enum BlockingStatus {
+    unblocked
+    blocked
+}
+
+enum SuspensionStatus {
+    active
+    suspended
+}
+
+struct Party {
+     1: required ID               id
+     2: required ID               event_id
+     3: required Timestamp        event_created_at
+     4: required EntityID         party_id
+     5: required string           contact_info_email
+     6: required Timestamp        created_at
+     7: required BlockingStatus   blocking
+     8: optional string           blocking_unblocked_reason
+     9: optional Timestamp        blocking_unblocked_since
+    10: optional string           blocking_blocked_reason
+    11: optional Timestamp        blocking_blocked_since
+    12: required SuspensionStatus suspension
+    13: optional Timestamp        suspension_active_since
+    14: optional Timestamp        suspension_suspended_since
+    15: required PartyRevision    revision
+    16: optional Timestamp        revision_changed_at
+    17: optional string           party_meta_set_ns
+    18: optional string           party_meta_set_data_json
+    19: required Timestamp        wtime
+    20: required bool             current
+}
+
+struct Shop {
+     1: required ID               id
+     2: required ID               event_id
+     3: required Timestamp        event_created_at
+     4: required EntityID         party_id
+     5: required EntityID         shop_id
+     6: required Timestamp        created_at
+     7: required BlockingStatus   blocking
+     8: optional string           blocking_unblocked_reason
+     9: optional Timestamp        blocking_unblocked_since
+    10: optional string           blocking_blocked_reason
+    11: optional Timestamp        blocking_blocked_since
+    12: required SuspensionStatus suspension
+    13: optional Timestamp        suspension_active_since
+    14: optional Timestamp        suspension_suspended_since
+    15: required string           details_name
+    16: optional string           details_description
+    17: required string           location_url
+    18: required ID               category_id
+    19: optional string           account_currency_code
+    20: optional ID               account_settlement
+    21: optional ID               account_guarantee
+    22: optional ID               account_payout
+    23: required EntityID         contract_id
+    24: optional EntityID         payout_tool_id
+    25: optional ID               payout_schedule_id
+    26: required Timestamp        wtime
+    27: required bool             current
+    28: optional PartyRevision    revision
 }
 
 struct LookupRequest {
@@ -430,15 +504,44 @@ struct LookupResult {
     1: required list<ResultData> data
 }
 
+struct AdjustmentNamespace  {}
+struct DestinationNamespace {}
+struct IdentityNamespace    {}
+struct InvoiceNamespace     {}
+struct PartyNamespace       {}
+struct PaymentNamespace     {}
+struct PayoutNamespace      {}
+struct RefundNamespace      {}
+struct ShopNamespace        {}
+struct WalletNamespace      {}
+struct WithdrawalNamespace  {}
+
+union LookupNamespace {
+     1: AdjustmentNamespace  adjustments
+     2: DestinationNamespace destinations
+     3: IdentityNamespace    idenitites
+     4: InvoiceNamespace     invoices
+     5: PartyNamespace       parties
+     6: PaymentNamespace     payments
+     7: PayoutNamespace      payouts
+     8: RefundNamespace      refunds
+     9: ShopNamespace        shops
+    10: WalletNamespace      wallets
+    11: WithdrawalNamespace  withdrawals
+}
+
 union ResultData {
-    1: list<Adjustment>  adjustments
-    2: list<Destination> destinations
-    3: list<Invoice>     invoices
-    4: list<Payment>     payments
-    5: list<Payout>      payouts
-    6: list<Refund>      refunds
-    7: list<Wallet>      wallets
-    8: list<Withdrawal>  withdrawals
+     1: list<Adjustment>  adjustments
+     2: list<Destination> destinations
+     9: list<Identity>    idenitites
+     3: list<Invoice>     invoices
+    10: list<Party>       parties
+     4: list<Payment>     payments
+     5: list<Payout>      payouts
+     6: list<Refund>      refunds
+    11: list<Shop>        shops
+     7: list<Wallet>      wallets
+     8: list<Withdrawal>  withdrawals
 }
 
 exception InvalidArguments {
