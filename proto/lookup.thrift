@@ -495,6 +495,20 @@ struct Shop {
     28: optional PartyRevision    revision
 }
 
+enum LookupNamespace {
+    adjustments = 1
+    destinations = 2
+    identities = 9
+    invoices = 3
+    parties = 10
+    payments = 4
+    payouts = 5
+    refunds = 6
+    shops = 11
+    wallets = 7
+    withdrawals = 8
+}
+
 struct LookupRequest {
     1: required list<LookupID> ids
     2: optional list<LookupNamespace> namespaces
@@ -502,32 +516,6 @@ struct LookupRequest {
 
 struct LookupResult {
     1: required list<ResultData> data
-}
-
-struct AdjustmentNamespace  {}
-struct DestinationNamespace {}
-struct IdentityNamespace    {}
-struct InvoiceNamespace     {}
-struct PartyNamespace       {}
-struct PaymentNamespace     {}
-struct PayoutNamespace      {}
-struct RefundNamespace      {}
-struct ShopNamespace        {}
-struct WalletNamespace      {}
-struct WithdrawalNamespace  {}
-
-union LookupNamespace {
-     1: AdjustmentNamespace  adjustments
-     2: DestinationNamespace destinations
-     3: IdentityNamespace    identities
-     4: InvoiceNamespace     invoices
-     5: PartyNamespace       parties
-     6: PaymentNamespace     payments
-     7: PayoutNamespace      payouts
-     8: RefundNamespace      refunds
-     9: ShopNamespace        shops
-    10: WalletNamespace      wallets
-    11: WithdrawalNamespace  withdrawals
 }
 
 union ResultData {
