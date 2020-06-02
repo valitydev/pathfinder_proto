@@ -519,7 +519,7 @@ struct WithdrawalNamespace  {}
 union LookupNamespace {
      1: AdjustmentNamespace  adjustments
      2: DestinationNamespace destinations
-     3: IdentityNamespace    idenitites
+     3: IdentityNamespace    identities
      4: InvoiceNamespace     invoices
      5: PartyNamespace       parties
      6: PaymentNamespace     payments
@@ -533,7 +533,7 @@ union LookupNamespace {
 union ResultData {
      1: list<Adjustment>  adjustments
      2: list<Destination> destinations
-     9: list<Identity>    idenitites
+     9: list<Identity>    identities
      3: list<Invoice>     invoices
     10: list<Party>       parties
      4: list<Payment>     payments
