@@ -443,56 +443,58 @@ enum SuspensionStatus {
 
 struct Party {
      1: required ID               id
-     2: required ID               event_id
-     3: required Timestamp        event_created_at
-     4: required EntityID         party_id
-     5: required string           contact_info_email
-     6: required Timestamp        created_at
-     7: required BlockingStatus   blocking
-     8: optional string           blocking_unblocked_reason
-     9: optional Timestamp        blocking_unblocked_since
-    10: optional string           blocking_blocked_reason
-    11: optional Timestamp        blocking_blocked_since
-    12: required SuspensionStatus suspension
-    13: optional Timestamp        suspension_active_since
-    14: optional Timestamp        suspension_suspended_since
-    15: required PartyRevision    revision
-    16: optional Timestamp        revision_changed_at
-    17: optional string           party_meta_set_ns
-    18: optional string           party_meta_set_data_json
-    19: required Timestamp        wtime
-    20: required bool             current
+     2: required Timestamp        event_created_at
+     3: required EntityID         party_id
+     4: required string           contact_info_email
+     5: required Timestamp        created_at
+     6: required BlockingStatus   blocking
+     7: optional string           blocking_unblocked_reason
+     8: optional Timestamp        blocking_unblocked_since
+     9: optional string           blocking_blocked_reason
+    10: optional Timestamp        blocking_blocked_since
+    11: required SuspensionStatus suspension
+    12: optional Timestamp        suspension_active_since
+    13: optional Timestamp        suspension_suspended_since
+    14: required PartyRevision    revision
+    15: optional Timestamp        revision_changed_at
+    16: optional string           party_meta_set_ns
+    17: optional string           party_meta_set_data_json
+    18: required Timestamp        wtime
+    19: required bool             current
+    20: optional ID               sequence_id
+    21: optional ID               change_id
 }
 
 struct Shop {
      1: required ID               id
-     2: required ID               event_id
-     3: required Timestamp        event_created_at
-     4: required EntityID         party_id
-     5: required EntityID         shop_id
-     6: required Timestamp        created_at
-     7: required BlockingStatus   blocking
-     8: optional string           blocking_unblocked_reason
-     9: optional Timestamp        blocking_unblocked_since
-    10: optional string           blocking_blocked_reason
-    11: optional Timestamp        blocking_blocked_since
-    12: required SuspensionStatus suspension
-    13: optional Timestamp        suspension_active_since
-    14: optional Timestamp        suspension_suspended_since
-    15: required string           details_name
-    16: optional string           details_description
-    17: required string           location_url
-    18: required ID               category_id
-    19: optional string           account_currency_code
-    20: optional ID               account_settlement
-    21: optional ID               account_guarantee
-    22: optional ID               account_payout
-    23: required EntityID         contract_id
-    24: optional EntityID         payout_tool_id
-    25: optional ID               payout_schedule_id
-    26: required Timestamp        wtime
-    27: required bool             current
-    28: optional PartyRevision    revision
+     2: required Timestamp        event_created_at
+     3: required EntityID         party_id
+     4: required EntityID         shop_id
+     5: required Timestamp        created_at
+     6: required BlockingStatus   blocking
+     7: optional string           blocking_unblocked_reason
+     8: optional Timestamp        blocking_unblocked_since
+     9: optional string           blocking_blocked_reason
+    10: optional Timestamp        blocking_blocked_since
+    11: required SuspensionStatus suspension
+    12: optional Timestamp        suspension_active_since
+    13: optional Timestamp        suspension_suspended_since
+    14: required string           details_name
+    15: optional string           details_description
+    16: required string           location_url
+    17: required ID               category_id
+    18: optional string           account_currency_code
+    19: optional ID               account_settlement
+    20: optional ID               account_guarantee
+    21: optional ID               account_payout
+    22: required EntityID         contract_id
+    23: optional EntityID         payout_tool_id
+    24: optional ID               payout_schedule_id
+    25: required Timestamp        wtime
+    26: required bool             current
+    27: optional ID               sequence_id
+    28: optional ID               change_id
+    29: optional ID               claim_effect_id
 }
 
 enum LookupNamespace {
