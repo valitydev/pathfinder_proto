@@ -2,7 +2,6 @@ namespace java com.rbkmoney.pathfinder.lookup
 namespace erlang pf
 
 typedef string         LookupID;
-typedef list<LookupID> LookupIDs;
 
 typedef i64     ID;
 typedef string  EntityID;
@@ -511,14 +510,18 @@ enum LookupNamespace {
     withdrawals = 8
 }
 
-struct LookupRequest {
+struct LookupParameters {
     1: required list<LookupID> ids
     2: optional list<LookupNamespace> namespaces
 }
 
-struct LookupResult {
-    1: required list<ResultData> data
+struct RelationParameters {
+    1: required LookupNamespace parent_namespace
+    2: required LookupID parent_id
+    3: optional list<LookupNamespace> child_namespaces
 }
+
+typedef list<ResultData> SearchResults
 
 union ResultData {
      1: list<Adjustment>  adjustments
@@ -539,6 +542,8 @@ exception InvalidArguments {
 }
 
 service Lookup {
-    LookupResult Lookup (1: LookupRequest request)
+    SearchResults Lookup (1: LookupParameters params)
+
+    SearchResults SearchRelated(1: RelationParameters params)
         throws(1: InvalidArguments invalid_args)
 }
