@@ -34,12 +34,10 @@ struct Adjustment {
     13: required string           reason
     14: required Timestamp        wtime
     15: required bool             current
-    16: optional Amount           fee
-    17: optional Amount           provider_fee
-    18: optional Amount           external_fee
     19: optional PartyRevision    party_revision
     20: optional ID               sequence_id
     21: optional ID               change_id
+    22: optional Amount           amount
 }
 
 enum DestinationStatus {
