@@ -41,8 +41,16 @@ struct Filter {
 * flat map of string keys and values with no strict schema. Please do not rely on any fields to be present
 * between repeated requests, or interpet the data as anything but a set of unformatted strings.
 **/
+
 typedef map<string, string> ResultData
-typedef list<ResultData> SearchResults
+
+struct Result {
+    1: required LookupID id
+    2: required LookupNamespace ns
+    3: required ResultData data
+}
+
+typedef list<Result> SearchResults
 
 exception InvalidArguments {
     1: optional string reason
