@@ -2,6 +2,7 @@ namespace java com.rbkmoney.pathfinder.lookup
 namespace erlang pf
 
 typedef string LookupID;
+typedef string Timestamp;
 
 enum LookupNamespace {
     adjustments = 1
@@ -48,6 +49,7 @@ struct Result {
     1: required LookupID id
     2: required LookupNamespace ns
     3: required ResultData data
+    4: required Timestamp created_at
 }
 
 typedef list<Result> SearchResults
