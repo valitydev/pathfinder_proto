@@ -1,6 +1,7 @@
 namespace java com.rbkmoney.pathfinder.lookup
 namespace erlang pf
 
+typedef i64 ID;
 typedef string LookupID;
 typedef string Timestamp;
 
@@ -46,10 +47,18 @@ struct Filter {
 typedef map<string, string> ResultData
 
 struct Result {
-    1: required LookupID id
+    // Database id (PK)
+    5: required ID id
+    // Actual entity id
+    1: required LookupID entity_id
+    // Entity namespace
     2: required LookupNamespace ns
+    // Database write time
+    4: required Timestamp wtime
+    // Optional time when the event has occured
+    6: optional Timestamp event_time
+    // Event data
     3: required ResultData data
-    4: required Timestamp created_at
 }
 
 typedef list<Result> SearchResults
