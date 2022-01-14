@@ -1,6 +1,12 @@
+/_build/
+*~
+.tags*
+*.sublime-workspace
 .DS_Store
-.rebar3
-_build
-ebin
-include
+.idea
+\#*
+.\#*
+rebar3.crashdump
+include/*.hrl
 src/*.erl
+*.iml

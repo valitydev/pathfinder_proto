@@ -1,4 +1,4 @@
-namespace java com.rbkmoney.pathfinder.lookup
+namespace java dev.vality.pathfinder.lookup
 namespace erlang pf
 
 typedef i64 ID;
