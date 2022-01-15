@@ -17,7 +17,7 @@
     <name>pathfinder-proto</name>
     <description>Generates jar artifact containing compiled thrift classes based on generated thrift IDL files
     </description>
-    <url>https://github.com/valitydev/pathfinder-proto</url>
+    <url>https://github.com/valitydev/pathfinder_proto</url>
 
     <licenses>
         <license>
@@ -35,9 +35,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/valitydev/pathfinder-proto</connection>
-        <developerConnection>scm:git:ssh://github.com/valitydev/pathfinder-proto</developerConnection>
-        <url>https://github.com/valitydev/pathfinder-proto/tree/master</url>
+        <connection>scm:git:git://github.com/valitydev/pathfinder_proto</connection>
+        <developerConnection>scm:git:ssh://github.com/valitydev/pathfinder_proto</developerConnection>
+        <url>https://github.com/valitydev/pathfinder_proto/tree/master</url>
     </scm>
 
     <properties>
